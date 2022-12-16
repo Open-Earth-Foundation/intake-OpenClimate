@@ -3,14 +3,12 @@
 An intake catalog to read emissions data into Python. Data is loaded as a Pandas dataframe. This is a work in progress
 
 ## Requirements
-This requires having [`intake`](https://intake.readthedocs.io/en/latest/index.html) intalled:
-
-If you are using Anaconda or Miniconda, install Intake with the following commands:
+If you are using Anaconda or Miniconda, install [`Intake`](https://intake.readthedocs.io/en/latest/index.html) with the following command:
 ```sh
 conda install -c conda-forge intake
 ```
 
-If you are using virtualenv/pip, run the following command:
+If you are using virtualenv/pip, do this:
 ```sh
 pip install intake
 ```
