@@ -1,0 +1,30 @@
+description: OpenClimate Master Data Catalog
+
+metadata:
+    version: 0.1.0
+    author: Luke Gloege (luke@openearth.org)
+    lastUpdated: 2022-12-14
+    parameters:
+        baseCID:
+            type: str
+            description: OpenClimate Master Data Catalog IPFS CID
+            default: "/ipfs/bafybeicuc35sn5etjylydfftymylsse3d5mrttwfagkzgr6vpjl4drhpdu"
+        gateway:
+            description: IPFS gateway server
+            type: str
+            default: ipfs.io
+
+sources:
+  actors:
+    args:
+      path: "{{ CATALOG_DIR }}/actors.yaml"
+    description: OpenClimate Actors Dataset Catalog
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  emissions:
+    args:
+      path: "{{ CATALOG_DIR }}/emissions.yaml"
+    description: OpenClimate Emissions Dataset Catalog
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}

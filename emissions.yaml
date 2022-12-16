@@ -1,0 +1,60 @@
+sources:
+    primap:
+        description: Country total GHG emissions from PRIMAP-histv2.4 (no extrapolation)
+        driver: intake.source.csv.CSVSource
+        parameters:
+            actor:
+                type: str
+                description: Actor you want data for
+                default: "alldata"
+        args:
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_primap_{{ actor }}_0.csv"
+        metadata:
+            total_emissions_unit: metric tonnes of CO2-equivalents (MTCO2e),
+            datasource: https://zenodo.org/record/7179775,
+            data_publisher: PIK (https://www.pik-potsdam.de/en/home)
+            
+    unfccc:
+        description: ANNEX1 countries GHG total emissions without LULUCF,
+        driver: intake.source.csv.CSVSource
+        parameters:
+            actor:
+                type: str
+                description: Actor you want data for
+                default: "alldata"
+        args:
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_unfccc_{{ actor }}_0.csv"
+        metadata: 
+            total_emissions_unit: metric tonnes of CO2-equivalents (MTCO2e),
+            datasource: https://di.unfccc.int/time_series,
+            data_publisher: UNFCCC
+            
+    epa_inventory:
+        description: US states emissions from EPA
+        driver: intake.source.csv.CSVSource
+        parameters:
+            actor:
+                type: str
+                description: Actor you want data for
+                default: "alldata"
+        args:
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_epa_inventory_{{ actor }}_0.csv"
+        metadata: 
+            total_emissions_unit: metric tonnes of CO2-equivalents (MTCO2e),
+            datasource: https://cfpub.epa.gov/ghgdata/inventoryexplorer/#,
+            data_publisher: EPA
+            
+    eccc_inventory:
+        description: Canadian provinces emissions from ECCC
+        driver: intake.source.csv.CSVSource
+        parameters:
+            actor:
+                type: str
+                description: Actor you want data for
+                default: "alldata"
+        args:
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_eccc_inventory_{{ actor }}_0.csv"
+        metadata: 
+            total_emissions_unit: metric tonnes of CO2-equivalents (MTCO2e),
+            datasource: https://data.ec.gc.ca/data/substances/monitor/canada-s-official-greenhouse-gas-inventory/A-IPCC-Sector/?lang=en,
+            data_publisher: ECCC
