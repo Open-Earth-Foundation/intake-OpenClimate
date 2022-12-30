@@ -1,0 +1,14 @@
+sources:
+    ndc:
+        description: Country Nationally Determined Contributions (NDC) from IGES database
+        driver: intake.source.csv.CSVSource
+        parameters:
+            actor:
+                type: str
+                description: Actor you want data for
+                default: "all"
+        args:
+            urlpath: "https://{{ gateway }}{{ baseCID }}/ndc_iges_{{ actor }}.csv"
+        metadata:
+            datasource: https://www.iges.or.jp/en/pub/iges-indc-ndc-database/en,
+            data_publisher: IGES (https://www.iges.or.jp/en)

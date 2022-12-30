@@ -6,9 +6,9 @@ sources:
             actor:
                 type: str
                 description: Actor you want data for
-                default: "alldata"
+                default: "all"
         args:
-            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_primap_{{ actor }}_0.csv"
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_primap_{{ actor }}.csv"
         metadata:
             total_emissions_unit: metric tonnes of CO2-equivalents (MTCO2e),
             datasource: https://zenodo.org/record/7179775,
@@ -21,40 +21,87 @@ sources:
             actor:
                 type: str
                 description: Actor you want data for
-                default: "alldata"
+                default: "all"
         args:
-            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_unfccc_{{ actor }}_0.csv"
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_unfccc_{{ actor }}.csv"
         metadata: 
             total_emissions_unit: metric tonnes of CO2-equivalents (MTCO2e),
             datasource: https://di.unfccc.int/time_series,
-            data_publisher: UNFCCC
+            data_publisher: UNFCCC (https://unfccc.int/)
             
-    epa_inventory:
+    epa:
         description: US states emissions from EPA
         driver: intake.source.csv.CSVSource
         parameters:
             actor:
                 type: str
                 description: Actor you want data for
-                default: "alldata"
+                default: "all"
         args:
-            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_epa_inventory_{{ actor }}_0.csv"
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_epa_{{ actor }}.csv"
         metadata: 
             total_emissions_unit: metric tonnes of CO2-equivalents (MTCO2e),
             datasource: https://cfpub.epa.gov/ghgdata/inventoryexplorer/#,
-            data_publisher: EPA
+            data_publisher: EPA (https://www.epa.gov/)
             
-    eccc_inventory:
+    eccc:
         description: Canadian provinces emissions from ECCC
         driver: intake.source.csv.CSVSource
         parameters:
             actor:
                 type: str
                 description: Actor you want data for
-                default: "alldata"
+                default: "all"
         args:
-            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_eccc_inventory_{{ actor }}_0.csv"
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_eccc_{{ actor }}.csv"
         metadata: 
             total_emissions_unit: metric tonnes of CO2-equivalents (MTCO2e),
             datasource: https://data.ec.gc.ca/data/substances/monitor/canada-s-official-greenhouse-gas-inventory/A-IPCC-Sector/?lang=en,
-            data_publisher: ECCC
+            data_publisher: ECCC (https://www.canada.ca/en/environment-climate-change.html)
+            
+    climate_trace:
+        description: Climate TRACE emissions
+        driver: intake.source.csv.CSVSource
+        parameters:
+            actor:
+                type: str
+                description: Actor you want data for
+                default: "all"
+        args:
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_climatetrace_{{ actor }}.csv"
+        metadata: 
+            total_emissions_unit: metric tonnes of CO2-equivalents (MTCO2e),
+            datasource: https://climatetrace.org/inventory,
+            data_publisher: Climate TRACE (https://climatetrace.org/)
+            
+            
+    edgar:
+        description: EDGARv7.0 emissions
+        driver: intake.source.csv.CSVSource
+        parameters:
+            actor:
+                type: str
+                description: Actor you want data for
+                default: "all"
+        args:
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_edgarv7.0_{{ actor }}.csv"
+        metadata: 
+            total_emissions_unit: metric tonnes of CO2-equivalents (MTCO2e),
+            datasource: https://edgar.jrc.ec.europa.eu/dataset_ghg70,
+            data_publisher: JRC (https://commission.europa.eu/about-european-commission/departments-and-executive-agencies/joint-research-centre_en)
+            
+            
+    gcb2022:
+        description: Global Carbon Budget 2022 CO2 emissions
+        driver: intake.source.csv.CSVSource
+        parameters:
+            actor:
+                type: str
+                description: Actor you want data for
+                default: "all"
+        args:
+            urlpath: "https://{{ gateway }}{{ baseCID }}/emissions_gcb2022_{{ actor }}.csv"
+        metadata: 
+            total_emissions_unit: metric tonnes of fossil CO2 (MTCO2),
+            datasource: https://www.icos-cp.eu/science-and-impact/global-carbon-budget/2022,
+            data_publisher: GCP (https://www.globalcarbonproject.org/)

@@ -1,3 +1,7 @@
+plugins:
+    source:
+        - module: intake_parquet
+            
 description: OpenClimate Master Data Catalog
 
 metadata:
@@ -8,7 +12,7 @@ metadata:
         baseCID:
             type: str
             description: OpenClimate Master Data Catalog IPFS CID
-            default: "/ipfs/bafybeicuc35sn5etjylydfftymylsse3d5mrttwfagkzgr6vpjl4drhpdu"
+            default: "/ipfs/bafybeihtfu6bypuwt3weh3shizh4dd22twibkziq3fmkyfpi7oh7gyxz6u"
         gateway:
             description: IPFS gateway server
             type: str
@@ -26,5 +30,12 @@ sources:
     args:
       path: "{{ CATALOG_DIR }}/emissions.yaml"
     description: OpenClimate Emissions Dataset Catalog
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+    
+  pledges:
+    args:
+      path: "{{ CATALOG_DIR }}/pledges.yaml"
+    description: OpenClimate Pledges (NDC only) Dataset Catalog
     driver: intake.catalog.local.YAMLFileCatalog
     metadata: {}

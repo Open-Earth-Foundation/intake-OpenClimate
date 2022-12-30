@@ -5,18 +5,16 @@ sources:
     args:
       urlpath: "https://{{ gateway }}{{ baseCID }}/actors_country.csv"
     metadata: {
-        dataSource: "https://www.iso.org/standard/72482.html",
-        dataPublisher: International Organization for Standards (ISO),
-        lastUpdated: 2022-11-17
+        datasource: "https://www.iso.org/standard/72482.html",
+        data_publisher: International Organization for Standards (ISO)
         }
         
   subnational:
     description: "Codes for the representation of names of countries and their subdivisions – Part 2: Country subdivision code"
     driver: intake.source.csv.CSVSource
     args:
-      urlpath: "https://{{ gateway }}{{ baseCID }}/actors_subnational.csv"
+      urlpath: "https://{{ gateway }}{{ baseCID }}/actors_subnat.csv"
     metadata: {
-        dataSource: "https://www.iso.org/standard/72482.html",
-        dataPublisher: International Organization for Standards (ISO),
-        lastUpdated: 2022-11-17
+        datasource: "https://www.iso.org/standard/72482.html",
+        data_publisher: International Organization for Standards (ISO)
         }
