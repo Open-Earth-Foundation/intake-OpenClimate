@@ -21,21 +21,21 @@ metadata:
 sources:
   actors:
     args:
-      path: "{{ CATALOG_DIR }}/actors.yaml"
+      path: "{{ CATALOG_DIR }}/catalogs/actors.yaml"
     description: OpenClimate Actors Dataset Catalog
     driver: intake.catalog.local.YAMLFileCatalog
     metadata: {}
 
   emissions:
     args:
-      path: "{{ CATALOG_DIR }}/emissions.yaml"
+      path: "{{ CATALOG_DIR }}/catalogs/emissions.yaml"
     description: OpenClimate Emissions Dataset Catalog
     driver: intake.catalog.local.YAMLFileCatalog
     metadata: {}
     
   pledges:
     args:
-      path: "{{ CATALOG_DIR }}/pledges.yaml"
+      path: "{{ CATALOG_DIR }}/catalogs/pledges.yaml"
     description: OpenClimate Pledges (NDC only) Dataset Catalog
     driver: intake.catalog.local.YAMLFileCatalog
     metadata: {}
