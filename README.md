@@ -40,5 +40,5 @@ print(list(cat.emissions))
 df = cat.emissions.unfccc.read()
 
 # load single actor
-df = cat.emissions.unfccc(actor='US").read()
+df = cat.emissions.unfccc(actor="US").read()
 ```
