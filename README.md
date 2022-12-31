@@ -2,6 +2,15 @@
 
 An intake catalog to read emissions data into Python. Data is loaded as a Pandas dataframe. This is a work in progress
 
+```
+├── LICENSE
+├── README.md        <-- to-level documentation
+├── catalogs/        <-- child catalogs
+├── master.yaml      <-- main intake catalog
+├── notebooks/       <-- example jupyter notebooks
+└── scripts/         <-- python scripts to query database
+```
+
 ## Requirements
 If you are using Anaconda or Miniconda, install [`Intake`](https://intake.readthedocs.io/en/latest/index.html) with the following command:
 ```sh
@@ -14,26 +23,22 @@ pip install intake
 ```
 
 ## Usage
-Open the data catalog:
 ```python
 import intake
 
+# load catalog
 catalog = "https://raw.githubusercontent.com/Open-Earth-Foundation/intake-OpenClimate/main/master.yaml"
 cat = intake.open_catalog(catalog)
-```
 
-List the available emissions datasets:
-```python
+# list child catalogs
+print(list(cat))
+
+# list emissions datasets available
 print(list(cat.emissions))
-```
 
-Load an entire dataset:
-```python
+# load all actors from dataset
 df = cat.emissions.unfccc.read()
-```
 
-Load a specific actor:
-```python
-actor='US'
-df = cat.emissions.unfccc(actor=actor).read()
+# load single actor
+df = cat.emissions.unfccc(actor='US").read()
 ```
