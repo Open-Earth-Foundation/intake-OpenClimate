@@ -4,7 +4,7 @@ An intake catalog to read emissions data into Python. Data is loaded as a Pandas
 
 ```
 ├── LICENSE
-├── README.md        <-- to-level documentation
+├── README.md        <-- top-level documentation
 ├── catalogs/        <-- child catalogs
 ├── master.yaml      <-- main intake catalog
 ├── notebooks/       <-- example jupyter notebooks
