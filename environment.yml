@@ -7,3 +7,6 @@ dependencies:
 - dask[complete]
 - pandas==1.5.0
 - matplotlib==3.6.1
+- pip
+- pip:
+  - git+https://github.com/Open-Earth-Foundation/intake-OpenClimate.git#egg=intake-OpenClimate
