@@ -1,0 +1,2 @@
+intake==0.6.6
+aiohttp==3.8.3
