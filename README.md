@@ -8,27 +8,22 @@ An intake catalog to read emissions data into Python. Data is loaded as a Pandas
 ├── catalogs/        <-- child catalogs
 ├── master.yaml      <-- main intake catalog
 ├── notebooks/       <-- example jupyter notebooks
-└── scripts/         <-- python scripts to query database
+├── scripts/         <-- python scripts to query database
+└── src/             <-- python package source code
 ```
 
-## Requirements
-If you are using Anaconda or Miniconda, install [`Intake`](https://intake.readthedocs.io/en/latest/index.html) with the following command:
+## Installation
 ```sh
-conda install -c conda-forge intake
+pip install -e git+https://github.com/Open-Earth-Foundation/intake-OpenClimate.git#egg=intake-OpenClimate
 ```
-
-If you are using virtualenv/pip, do this:
-```sh
-pip install intake
-```
+For now you can only install the package via GitHub, soon it will be available on `PyPi` and `conda`
 
 ## Usage
 ```python
-import intake
+import intake_openclimate as oc
 
 # load catalog
-catalog = "https://raw.githubusercontent.com/Open-Earth-Foundation/intake-OpenClimate/main/master.yaml"
-cat = intake.open_catalog(catalog)
+cat = oc.open_catalog()
 
 # list child catalogs
 print(list(cat))
