@@ -14,7 +14,7 @@ An intake catalog to read emissions data into Python. Data is loaded as a Pandas
 
 ## Installation
 ```sh
-pip install -e git+https://github.com/Open-Earth-Foundation/intake-OpenClimate.git#egg=intake-OpenClimate
+pip install git+https://github.com/Open-Earth-Foundation/intake-OpenClimate.git#egg=intake-OpenClimate
 ```
 For now you can only install the package via GitHub, soon it will be available on `PyPi` and `conda`
 
